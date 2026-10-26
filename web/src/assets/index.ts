@@ -1,7 +1,5 @@
 import generatedManifestJson from "@/assets/manifest.gen.json";
 import { AUDIO_BUNDLE_NAME } from "@/constants";
-import { secondPart } from "@/content/labels/second.label";
-import { startLabel } from "@/content/labels/start.label";
 import type { FileRouteTypes } from "@/routeTree.gen";
 import type { AssetsManifest } from "@drincs/pixi-vn";
 
@@ -15,13 +13,17 @@ export const manifest: AssetsManifest = {
         {
             name: AUDIO_BUNDLE_NAME,
             assets: [
+                // Local files (served from /public/audio). pixi-vn's sound
+                // module decodes these via Tone.js; the "audio" loader
+                // registered in assets-utility.ts keeps PixiJS's Assets from
+                // warning that it has no parser for .wav.
                 {
                     alias: "bgm_cheerful",
-                    src: "https://pub-72ff059a2c6642fb9eab15df80fb3b45.r2.dev/audio/bgm_cheerful.wav",
+                    src: "/audio/bgm_cheerful.wav",
                 },
                 {
                     alias: "sfx_whoosh",
-                    src: "https://pub-72ff059a2c6642fb9eab15df80fb3b45.r2.dev/audio/sfx_whoosh.wav",
+                    src: "/audio/sfx_whoosh.wav",
                 },
             ],
         },
@@ -31,29 +33,17 @@ export const manifest: AssetsManifest = {
             assets: [
                 {
                     alias: "background_main_menu",
-                    src: "https://pub-72ff059a2c6642fb9eab15df80fb3b45.r2.dev/main-menu.png",
+                    src: "/main-menu.png", // Local path relative to public directory
                 },
             ],
         },
-        // labels
-        {
-            name: startLabel.id,
-            assets: [
-                {
-                    alias: "bg01-hallway",
-                    src: "https://pub-72ff059a2c6642fb9eab15df80fb3b45.r2.dev/breakdown/bg01-hallway.webp",
-                },
-            ],
-        },
-        {
-            name: secondPart.id,
-            assets: [
-                {
-                    alias: "bg02-dorm",
-                    src: "https://pub-72ff059a2c6642fb9eab15df80fb3b45.r2.dev/breakdown/bg02-dorm.webp",
-                },
-            ],
-        },
+        // labels - Little Red Riding Hood story
+        // The label's backgrounds (backgrounds_forest-path, backgrounds_grandma-cottage,
+        // backgrounds_wolf-forest) and every character sprite (characters_red-riding-hood,
+        // characters_grandma-lupus, characters_lrrh-and-wolf, characters_wolf-forest) come
+        // from the generated manifest's "backgrounds" and "characters" bundles. Don't
+        // re-register those aliases here: the resolver keeps the last registration, so a
+        // duplicate entry would shadow the generated one.
         // characters
         {
             name: "fm01",

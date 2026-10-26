@@ -79,9 +79,43 @@ function normalizeAliases(options: { output: string }): AssetPipe<{ output: stri
     };
 }
 
+const assetsOutput = "./public/assets";
+
+/**
+ * Rewrites the manifest's src entries to absolute web paths. AssetPack's
+ * output lives inside Vite's public directory (./public/assets), which is
+ * served from the web root as /assets/. The pixi manifest pipe writes src
+ * relative to the output dir (e.g. "backgrounds/forest-path.jpg"), but the
+ * browser would resolve that against the page URL
+ * (http://host/backgrounds/forest-path.jpg) and 404. Prefixing with the
+ * output dir's location under the public dir makes entries absolute
+ * (http://host/assets/backgrounds/forest-path.jpg). Runs after the manifest
+ * has been written to disk, so it re-reads and rewrites the file.
+ */
+function absoluteManifestSrc(options: { manifest: string; prefix: string }): AssetPipe<{ manifest: string; prefix: string }> {
+    return {
+        name: "absolute-manifest-src",
+        defaultOptions: options,
+        async finish(_asset, opts) {
+            const manifest = JSON.parse(await fs.readFile(opts.manifest, "utf-8"));
+
+            for (const bundle of manifest.bundles) {
+                for (const asset of bundle.assets) {
+                    asset.src = asset.src.map((src: string) =>
+                        // leave already-absolute paths and URLs (https:, data:, ...) untouched
+                        src.startsWith("/") || /^[a-z][a-z0-9+.-]*:/i.test(src) ? src : opts.prefix + src,
+                    );
+                }
+            }
+
+            await fs.writeFile(opts.manifest, JSON.stringify(manifest, null, 2));
+        },
+    };
+}
+
 const config: AssetPackConfig = {
     entry: "./src/assets",
-    output: "./public/assets",
+    output: assetsOutput,
     ignore: ["**/*.ts", "**/*.js", "**/*.gen.*"],
     pipes: [
         ...pixiPipes({
@@ -92,6 +126,12 @@ const config: AssetPackConfig = {
         }),
         groupBundlesByFolder({ output: manifestOutput }),
         normalizeAliases({ output: manifestOutput }),
+        // The public dir (./public) is served from the web root, so
+        // ./public/assets -> /assets/
+        absoluteManifestSrc({
+            manifest: manifestOutput,
+            prefix: `/${assetsOutput.replace(/^\.?\//, "").split("public/")[1] ?? ""}/`.replace(/\/{2,}/g, "/"),
+        }),
     ],
 };
 

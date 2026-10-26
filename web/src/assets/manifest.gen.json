@@ -9,10 +9,10 @@
             "forest-path"
           ],
           "src": [
-            "backgrounds/forest-path-UOMHgQ@0.5x.jpg",
-            "backgrounds/forest-path-Ms7dlw.webp",
-            "backgrounds/forest-path-f7gklA@0.5x.webp",
-            "backgrounds/forest-path-42wafA.jpg"
+            "/assets/backgrounds/forest-path-UOMHgQ@0.5x.jpg",
+            "/assets/backgrounds/forest-path-Ms7dlw.webp",
+            "/assets/backgrounds/forest-path-f7gklA@0.5x.webp",
+            "/assets/backgrounds/forest-path-42wafA.jpg"
           ],
           "data": {
             "tags": {}
@@ -24,10 +24,10 @@
             "grandma-cottage"
           ],
           "src": [
-            "backgrounds/grandma-cottage-ljbVBg@0.5x.webp",
-            "backgrounds/grandma-cottage-a-h4Gg.jpg",
-            "backgrounds/grandma-cottage-6-bdLA@0.5x.jpg",
-            "backgrounds/grandma-cottage-_GLsFg.webp"
+            "/assets/backgrounds/grandma-cottage-ljbVBg@0.5x.webp",
+            "/assets/backgrounds/grandma-cottage-a-h4Gg.jpg",
+            "/assets/backgrounds/grandma-cottage-6-bdLA@0.5x.jpg",
+            "/assets/backgrounds/grandma-cottage-_GLsFg.webp"
           ],
           "data": {
             "tags": {}
@@ -39,10 +39,10 @@
             "wolf-forest"
           ],
           "src": [
-            "backgrounds/wolf-forest-WocY5Q@0.5x.jpg",
-            "backgrounds/wolf-forest-FWzSyA@0.5x.webp",
-            "backgrounds/wolf-forest-aAOVCw.webp",
-            "backgrounds/wolf-forest-4u0mHw.jpg"
+            "/assets/backgrounds/wolf-forest-WocY5Q@0.5x.jpg",
+            "/assets/backgrounds/wolf-forest-FWzSyA@0.5x.webp",
+            "/assets/backgrounds/wolf-forest-aAOVCw.webp",
+            "/assets/backgrounds/wolf-forest-4u0mHw.jpg"
           ],
           "data": {
             "tags": {}
@@ -55,11 +55,11 @@
       "assets": [
         {
           "alias": [
-            "characters_red-riding-hood",
-            "red-riding-hood"
+            "characters_grandma-lupus",
+            "grandma-lupus"
           ],
           "src": [
-            "characters/red-riding-hood-wCJu_w.svg"
+            "/assets/characters/grandma-lupus-wCJu_w.svg"
           ],
           "data": {
             "tags": {}
@@ -71,7 +71,7 @@
             "lrrh-and-wolf"
           ],
           "src": [
-            "characters/lrrh-and-wolf-8e9h1Q.svg"
+            "/assets/characters/lrrh-and-wolf-8e9h1Q.svg"
           ],
           "data": {
             "tags": {}
@@ -79,11 +79,23 @@
         },
         {
           "alias": [
-            "characters_grandma-lupus",
-            "grandma-lupus"
+            "characters_red-riding-hood",
+            "red-riding-hood"
           ],
           "src": [
-            "characters/grandma-lupus-wCJu_w.svg"
+            "/assets/characters/red-riding-hood-wCJu_w.svg"
+          ],
+          "data": {
+            "tags": {}
+          }
+        },
+        {
+          "alias": [
+            "characters_wolf-forest",
+            "characters_wolf-forest"
+          ],
+          "src": [
+            "/assets/characters/wolf-forest-ZLtwRw.svg"
           ],
           "data": {
             "tags": {}

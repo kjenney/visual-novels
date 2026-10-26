@@ -3,6 +3,27 @@ import { AUDIO_BUNDLE_NAME } from "@/constants";
 import type { FileRouteTypes } from "@/routeTree.gen";
 import { Assets, sound } from "@drincs/pixi-vn";
 
+/**
+ * PixiJS's Assets has no built-in parser for audio, but pixi-vn's sound
+ * module routes the audio bundle through Assets (to resolve each alias to a
+ * URL) before Tone.js decodes it. Without a parser that claims the audio
+ * extensions, Assets logs "could not be loaded as we don't know how to parse
+ * it" for every audio file. Register a minimal loader that claims those
+ * extensions and resolves to null — sound.load() does the real decode via
+ * Tone.js — so the aliases resolve cleanly and the warning goes away.
+ *
+ * Guarded so a hot-reload of this module doesn't push a duplicate parser.
+ */
+const AUDIO_FILE_RE = /\.(wav|mp3|ogg|oga|opus|flac|m4a|aac)(\?|#|$)/i;
+if (!Assets.loader.parsers.some((parser) => parser.id === "audio")) {
+    Assets.loader.parsers.push({
+        id: "audio",
+        name: "audio",
+        test: (url) => AUDIO_FILE_RE.test(url) || url.startsWith("data:audio/"),
+        load: async () => null,
+    });
+}
+
 let assetsInitialized = false;
 
 /**
