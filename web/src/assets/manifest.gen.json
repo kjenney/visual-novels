@@ -67,11 +67,14 @@
         },
         {
           "alias": [
-            "characters_lrrh-and-wolf",
-            "lrrh-and-wolf"
+            "characters_huntsman",
+            "huntsman"
           ],
           "src": [
-            "/assets/characters/lrrh-and-wolf-8e9h1Q.svg"
+            "/assets/characters/huntsman-WGmMlg.webp",
+            "/assets/characters/huntsman-RSiKyg.jpg",
+            "/assets/characters/huntsman-p9Z3Sg@0.5x.webp",
+            "/assets/characters/huntsman-OazRcA@0.5x.jpg"
           ],
           "data": {
             "tags": {}

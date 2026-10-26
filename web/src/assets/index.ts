@@ -40,7 +40,7 @@ export const manifest: AssetsManifest = {
         // labels - Little Red Riding Hood story
         // The label's backgrounds (backgrounds_forest-path, backgrounds_grandma-cottage,
         // backgrounds_wolf-forest) and every character sprite (characters_red-riding-hood,
-        // characters_grandma-lupus, characters_lrrh-and-wolf, characters_wolf-forest) come
+        // characters_grandma-lupus, characters_huntsman, characters_wolf-forest) come
         // from the generated manifest's "backgrounds" and "characters" bundles. Don't
         // re-register those aliases here: the resolver keeps the last registration, so a
         // duplicate entry would shadow the generated one.

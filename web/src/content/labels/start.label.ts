@@ -149,7 +149,7 @@ export const pathContinuesLabel = newLabel(
             await moveIn(
                 "huntsman",
                 {
-                    value: ["characters_lrrh-and-wolf"],
+                    value: ["characters_huntsman"],
                     options: { xAlign: 0.2, yAlign: 1 },
                 },
                 { direction: "right", ease: "anticipate" },
@@ -203,7 +203,7 @@ export const followWolfLabel = newLabel(
             await moveIn(
                 "huntsman",
                 {
-                    value: ["characters_lrrh-and-wolf"],
+                    value: ["characters_huntsman"],
                     options: { xAlign: 0.8, yAlign: 1 },
                 },
                 { direction: "left", ease: "easeInOut" },
@@ -211,7 +211,7 @@ export const followWolfLabel = newLabel(
             narration.dialogue = { character: huntsman, text: `Leave her alone, beast!` };
         },
         async () => {
-            await showImageContainer("huntsman", ["characters_lrrh-and-wolf"]);
+            await showImageContainer("huntsman", ["characters_huntsman"]);
             narration.dialogue = { character: huntsman, text: `You're under arrest for trespassing and attempted kidnapping!` };
         },
         async () => {
@@ -227,7 +227,7 @@ export const followWolfLabel = newLabel(
             narration.dialogue = { character: red, text: `Thank you, Huntsman!` };
         },
         async () => {
-            await showImageContainer("huntsman", ["characters_lrrh-and-wolf"]);
+            await showImageContainer("huntsman", ["characters_huntsman"]);
             narration.dialogue = { character: huntsman, text: `Be careful in the woods, little one. Stay on the path.` };
         },
         async () => {
@@ -322,7 +322,7 @@ export const escapeSceneLabel = newLabel(
             await moveIn(
                 "huntsman",
                 {
-                    value: ["characters_lrrh-and-wolf"],
+                    value: ["characters_huntsman"],
                     options: { xAlign: 0.2, yAlign: 1 },
                 },
                 { direction: "right", ease: "anticipate" },
