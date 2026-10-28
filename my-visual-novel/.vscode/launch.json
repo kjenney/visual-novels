@@ -1,0 +1,37 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug Game",
+      "request": "launch",
+      "type": "editor-browser",
+      "url": "http://localhost:5173",
+      "webRoot": "${workspaceFolder}",
+      "preLaunchTask": "Restart Vite Dev Server"
+    },
+    {
+      "name": "Debug Game (Chrome)",
+      "request": "launch",
+      "type": "chrome",
+      "url": "http://localhost:5173",
+      "webRoot": "${workspaceFolder}",
+      "preLaunchTask": "Restart Vite Dev Server"
+    },
+    {
+      "name": "Game Preview",
+      "request": "launch",
+      "type": "editor-browser",
+      "url": "http://localhost:4173",
+      "webRoot": "${workspaceFolder}",
+      "preLaunchTask": "Start Vite Preview Server",
+      "postDebugTask": "Stop Vite Preview Server"
+    },
+    {
+      "name": "Game Preview (Desktop)",
+      "type": "roves",
+      "request": "launch",
+      "preLaunchTask": "Build",
+      "distFolder": "dist"
+    }
+  ]
+}

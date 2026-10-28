@@ -1,0 +1,9 @@
+# Each novel folder has its own .gitignore; these are safety nets for the repo root
+node_modules
+dist
+*.local
+.assetpack
+
+# Logs
+*.log
+npm-debug.log*

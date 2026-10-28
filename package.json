@@ -1,0 +1,12 @@
+{
+    "name": "visual-novels",
+    "description": "A collection of visual novels built with Pixi'VN",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "list": "node scripts/novel.mjs",
+        "create": "node scripts/create-novel.mjs",
+        "dev:little-red-riding-hood": "node scripts/novel.mjs little-red-riding-hood",
+        "dev:my-visual-novel": "node scripts/novel.mjs my-visual-novel"
+    }
+}

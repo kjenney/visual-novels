@@ -1,0 +1,14 @@
+{
+    "novels": [
+        {
+            "name": "little-red-riding-hood",
+            "dir": "web",
+            "description": "The story of Little Red Riding Hood, built with Pixi'VN"
+        },
+        {
+            "name": "my-visual-novel",
+            "dir": "my-visual-novel",
+            "description": "A new visual novel created from the Pixi'VN template"
+        }
+    ]
+}
